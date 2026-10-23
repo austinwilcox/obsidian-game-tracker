@@ -7,6 +7,7 @@
   --gt-paused: var(--color-orange);
   --gt-dropped: var(--text-faint);
   --gt-backlog: var(--color-blue);
+  --gt-next: var(--color-purple);
   max-width: 1100px;
   margin: 0 auto;
   padding-bottom: var(--size-4-12);
@@ -168,6 +169,7 @@
   color: var(--text-muted);
 }
 .gt-status-playing { border-left-color: var(--gt-playing); }
+.gt-status-next { border-left-color: var(--gt-next); }
 .gt-status-backlog { border-left-color: var(--gt-backlog); }
 .gt-status-paused { border-left-color: var(--gt-paused); }
 .gt-status-beaten { border-left-color: var(--gt-beaten); }

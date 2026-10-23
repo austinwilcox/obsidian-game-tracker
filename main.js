@@ -23,6 +23,7 @@ const DB_MAX_AGE_MS = 90 * 24 * 60 * 60 * 1000;
 
 const STATUSES = [
   { id: "playing", label: "Playing", icon: "gamepad-2", folder: "Playing" },
+  { id: "next", label: "Up next", icon: "list-ordered", folder: "Up next" },
   { id: "backlog", label: "Backlog", icon: "library", folder: "Backlog" },
   { id: "paused", label: "On hold", icon: "pause", folder: "On hold" },
   { id: "beaten", label: "Beaten", icon: "check", folder: "Beaten" },
@@ -1540,7 +1541,7 @@ class GameDashboardView extends ItemView {
       if (!list.length) {
         grid.createDiv({
           cls: "gt-empty",
-          text: "Nothing in progress. Start something from your backlog.",
+          text: "Nothing in progress. Start something from Up next or your backlog.",
         });
       }
       list.forEach((g) => this.renderCard(grid, g));
@@ -1632,8 +1633,10 @@ class GameDashboardView extends ItemView {
     };
     if (g.status === "playing") {
       act("Beat it", "check", () => new GameModal(this.plugin, g, "beaten").open(), true);
-    } else if (g.status === "backlog" || g.status === "paused" || g.status === "dropped") {
-      act(g.status === "backlog" ? "Start playing" : "Resume", "play", () => this.plugin.setStatus(g, "playing"), true);
+    } else if (g.status === "next" || g.status === "backlog" || g.status === "paused" || g.status === "dropped") {
+      const fresh = g.status === "next" || g.status === "backlog";
+      act(fresh ? "Start playing" : "Resume", "play", () => this.plugin.setStatus(g, "playing"), true);
+      if (g.status === "backlog") act("Up next", "list-plus", () => this.plugin.setStatus(g, "next"));
     } else if (g.status === "beaten") {
       act("Mark 100%", "trophy", () => new GameModal(this.plugin, g, "completed").open());
     }
@@ -1748,7 +1751,7 @@ class GameTrackerSettingTab extends PluginSettingTab {
 
     new Setting(containerEl)
       .setName("Status folders")
-      .setDesc("Keeps each game in a subfolder for its status (Playing, Backlog, On hold, Beaten, Completed, Dropped) and moves it when the status changes. Turning this off leaves notes where they are.")
+      .setDesc("Keeps each game in a subfolder for its status (Playing, Up next, Backlog, On hold, Beaten, Completed, Dropped) and moves it when the status changes. Turning this off leaves notes where they are.")
       .addToggle((t) =>
         t.setValue(this.plugin.settings.statusFolders).onChange(async (v) => {
           this.plugin.settings.statusFolders = v;

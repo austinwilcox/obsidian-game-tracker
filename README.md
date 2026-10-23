@@ -41,6 +41,7 @@ Game notes are kept in a subfolder for their status:
 ```
 Games/
   Playing/
+  Up next/
   Backlog/
   On hold/
   Beaten/
@@ -67,7 +68,7 @@ Details depend on the system. Cartridge systems like SNES, Genesis, and Game Boy
 
 ## The dashboard
 
-- **Library**: cards with box art, grouped into Playing, Backlog, On hold, Beaten, 100% completed, and Dropped.
+- **Library**: cards with box art, grouped into Playing, Up next, Backlog, On hold, Beaten, 100% completed, and Dropped.
 - **Beaten log**: finished games by year with a monthly chart, hours, average rating, and days to beat.
 - **Beat it** asks for the date, rating, and hours; the date defaults to today.
 
@@ -78,7 +79,7 @@ Commands (Ctrl/Cmd+P): Add game (search), Open dashboard, Fetch game info for cu
 ```yaml
 ---
 type: game
-status: beaten        # backlog, playing, paused, beaten, completed, dropped
+status: beaten        # playing, next, backlog, paused, beaten, completed, dropped
 platform: SNES
 genre: [Role-playing (RPG)]
 started: 2026-09-28
