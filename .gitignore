@@ -1,0 +1,6 @@
+# Per-vault plugin state (may hold your RAWG API key)
+data.json
+# Downloaded libretro game lists
+cache/
+node_modules/
+.DS_Store

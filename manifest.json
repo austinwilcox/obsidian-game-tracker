@@ -1,0 +1,9 @@
+{
+  "id": "game-tracker",
+  "name": "Game Tracker",
+  "version": "1.2.0",
+  "minAppVersion": "1.5.0",
+  "description": "Track the games you play, retro or modern. Search for a game to add it with box art and details, and log when you beat it.",
+  "author": "Austin Wilcox",
+  "isDesktopOnly": false
+}
