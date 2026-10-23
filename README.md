@@ -94,3 +94,7 @@ libretro_name: Chrono Trigger (USA)
 ```
 
 All plain properties, so Dataview and Bases can use them too. If you add a RAWG key, it is stored in the plugin's `data.json`; don't commit or publish that file.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
