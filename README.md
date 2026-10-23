@@ -4,8 +4,12 @@ Search for a game, add it as a note with its box art and details, track what you
 
 ## Install
 
+Install it from the Obsidian community directory: [Game Tracker](https://community.obsidian.md/plugins/game-tracker). Or in Obsidian, go to Settings > Community plugins > Browse and search for **Game Tracker**.
+
+To install by hand:
+
 1. In your vault, create the folder `.obsidian/plugins/game-tracker/`
-2. Copy `main.js`, `manifest.json`, and `styles.css` into it
+2. Copy `main.js`, `manifest.json`, and `styles.css` from the [latest release](https://github.com/austinwilcox/obsidian-game-tracker/releases/latest) into it
 3. In Obsidian: Settings > Community plugins > turn off Restricted mode > reload > enable **Game Tracker**
 
 That's all. Retro search needs no account and no API key.
